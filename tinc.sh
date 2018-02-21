@@ -43,7 +43,7 @@ cd /etc/tinc/$VPN/
 touch tinc-up
 
 ## Linux config  ##
-#@  NEED TO CREATE A 'valid' IP INPUT
+##  NEED TO CREATE A 'valid' IP INPUT
 echo -n "What would you like your VPN_IP to be {{this will be a /32}}? 
 ** Please do not be dumb... create an IP from a subnet not in use.  {{ex: 10.67.68.X}} "
 read VPN_IP
@@ -73,15 +73,23 @@ cmd="tincd -n $VPN -K4096"
 $cmd 
 
 ## Permission the file ##
-chmod 644 ./$VPN
+chmod 644 ./$CLIENT_NAME
 
+echo " " 
+echo " " 
 
 
 ## VERIFY::
 echo -n "Checking the host file {{/etc/tinc/$VPN/hosts/$CLIENT_NAME}}"
-cd /etc/tinc/$VPN/ && cat ./*
-cd ./hosts && cat ./*
+cd /etc/tinc/$VPN/
+value=`cat ./*`
+echo 'value'
 
+sleep 2 
+
+cd ./hosts
+value1='cat ./*'
+echo 'value1'
 
 ### ./tinc start
 
