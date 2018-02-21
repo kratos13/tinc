@@ -112,8 +112,11 @@ sleep 2
 echo " " 
 
 ## Just some additional output ##
-echo -n "Alright"
+echo -n "Alright" \n
 sleep 2
-echo -n "Now we have configured $CLIENT_NAME to be part of $VPN. Remember, the 'CLIENT_NAME' for a host can be anything you wish, but the actual network of the VPN {{$VPN}} must remain the same on any other VPN_CLIENT you create"
+echo " "
+echo -n "Now we have configured $CLIENT_NAME to be part of $VPN. Remember, the 'CLIENT_NAME' for a host can be anything you wish, but the actual network of the VPN {{$VPN}} must remain the same on any other VPN_CLIENT you create. " \n
 sleep 2
-echo -n "#tinc is now configured with $CLIENT_NAME. Be sure to copy any additional VPN_CLIENT files to all other clients. If you know how VPN works, this should be pretty easy. Otherwise please see the (evolving) README" 
+echo " " 
+echo -n "Congrats! #tinc is now configured with $CLIENT_NAME. Be sure to copy any additional VPN_CLIENT files to all other clients. If you know how VPN works, this should be pretty easy. Otherwise please see the (evolving) README. Cheers. "\n
+sleep 2 
