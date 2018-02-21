@@ -11,7 +11,7 @@
 ##
 ###########
 ###########
-
+clear
 echo "Hello, "$USER".  This will {obviously} intall tinc, the lightweight VPN package. Please run as root."
 sleep 5
 
