@@ -34,7 +34,7 @@ mkdir -p "./$VPN"
 mkdir -p "./$VPN/hosts/"
 
 # Create the 'boot' file
-#touch nets.boot && echo ""$VPN"" > nets.boot
+touch nets.boot && echo ""$VPN"" > nets.boot
 
 
 cd /etc/tinc/$VPN/
@@ -68,6 +68,7 @@ echo -e 'ProcessPriority = high' >> tinc.conf
 echo -e 'LocalDiscovery = yes' >> tinc.conf
 
 ## Create the VPN-keys ##
+echo -n "Creating 4096-bit key ::"
 cmd="tincd -n $VPN -K4096"
 $cmd 
 
@@ -77,6 +78,7 @@ chmod 644 ./$VPN
 
 
 ## VERIFY::
+echo -n "Checking the host file {{/etc/tinc/$VPN/hosts/$CLIENT_NAME}}"
 cd /etc/tinc/$VPN/ && cat ./*
 cd ./hosts && cat ./*
 
@@ -88,10 +90,11 @@ cd ./hosts && cat ./*
 #Start on boot (Debian) ::
 insserv tinc
 
+sleep 2
 
 ## Just some additional output ##
 echo -n "Alright"
 sleep 2
 echo -n "Now we have configured $CLIENT_NAME to be part of $VPN. Remember, the 'CLIENT_NAME' for a host can be anything you wish, but the actual network of the VPN {{$VPN}} must remain the same on any other VPN_CLIENT you create"
-sleep 3
+sleep 2
 echo -n "#tinc is now configured with $CLIENT_NAME. Be sure to copy any additional VPN_CLIENT files to all other clients. If you know how VPN works, this should be pretty easy. Otherwise please see the (evolving) README" 
