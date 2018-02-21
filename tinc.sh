@@ -82,14 +82,14 @@ echo " "
 ## VERIFY::
 echo -n "Checking the host file {{/etc/tinc/$VPN/hosts/$CLIENT_NAME}}"
 cd /etc/tinc/$VPN/hosts/
-$value='cat ./*'
-echo 'value'
+value='cat ./*'
+echo "$value"
 
 sleep 2 
 
 cd ./hosts
 $value1='cat ./*'
-echo 'value1'
+echo "$value1"
 
 ### ./tinc start
 
