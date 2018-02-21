@@ -44,8 +44,8 @@ touch tinc-up
 
 ## Linux config  ##
 #@  NEED TO CREATE A 'valid' IP INPUT
-echo -n "What would you like your VPN IP to be? 
-** Please do not be dumb... use a subnet not in use. "
+echo -n "What would you like your VPN_IP to be {{this will be a /32}}? 
+** Please do not be dumb... create an IP from a subnet not in use.  {{ex: 10.67.68.X}} "
 read VPN_IP
 echo -e '#!/bin/bash'
 echo -e 'ifconfig $INTERFACE' $VPN_IP 'netmask 255.255.255.0' >> tinc-up 
@@ -88,3 +88,10 @@ cd ./hosts && cat ./*
 #Start on boot (Debian) ::
 insserv tinc
 
+
+## Just some additional output ##
+echo -n "Alright"
+sleep 2
+echo -n "Now we have configured $CLIENT_NAME to be part of $VPN. Remember, the 'CLIENT_NAME' for a host can be anything you wish, but the actual network of the VPN {{$VPN}} must remain the same on any other VPN_CLIENT you create"
+sleep 3
+echo -n "#tinc is now configured with $CLIENT_NAME. Be sure to copy any additional VPN_CLIENT files to all other clients. If you know how VPN works, this should be pretty easy. Otherwise please see the (evolving) README" 
