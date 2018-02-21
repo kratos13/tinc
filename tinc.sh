@@ -47,9 +47,9 @@ touch tinc-up
 echo -n "What would you like your VPN_IP to be {{this will be a /32}}? 
 ** Please do not be dumb... create an IP from a subnet not in use.  {{ex: 10.67.68.X}} "
 read VPN_IP
-echo -e '#!/bin/bash'
+echo -e '#!/bin/bash' >> tinc-up
 echo -e 'ifconfig $INTERFACE' $VPN_IP 'netmask 255.255.255.0' >> tinc-up 
-echo -e "ifconfig $INTERFACE up" >> tinc-up
+echo -e 'ifconfig $INTERFACE up' >> tinc-up
 
 ## Create down script ##
 touch tinc-down
