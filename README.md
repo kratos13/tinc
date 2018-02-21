@@ -15,11 +15,11 @@ I really owe a few people for getting me on to #tinc. Special thanks to rtasson 
 
    # Example of my tinc.conf #
 
-Name = cronus
-Mode = switch
-ProcessPriority = high
-LocalDiscovery = yes
-ConnectTo = pollyanna
+Name = cronus \n
+Mode = switch \n
+ProcessPriority = high \n
+LocalDiscovery = yes \n
+ConnectTo = pollyanna \n
 
 
    Where 'cronus' is the name of my $CLIENT_NAME and 'pollyanna' is the other host I am trying to connect to. So, on pollyanna, it would have a 'ConnectTo = cronus'
