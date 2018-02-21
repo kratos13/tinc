@@ -22,7 +22,7 @@ if [ "$(id -u)" != "0" ]; then
 fi
 
 # Update the system as rootm
- apt-get update && apt-get install tinc
+# apt-get update && apt-get install tinc
 
 # change to home directory
 cd /etc/tinc
