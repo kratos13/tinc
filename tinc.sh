@@ -27,6 +27,8 @@ fi
 # change to home directory
 cd /etc/tinc
 
+echo " "
+echo " "
 # Make a directory
 echo -n "Enter your desired name for your VPN and press [ENTER]: " 
 read VPN
@@ -42,20 +44,27 @@ cd /etc/tinc/$VPN/
 ## Create up sript ##
 touch tinc-up
 
+echo " "
+
 ## Linux config  ##
 ##  NEED TO CREATE A 'valid' IP INPUT
 echo -n "What would you like your VPN_IP to be {{this will be a /32}}? 
+echo " "
 ** Please do not be dumb... create an IP from a subnet not in use.  {{ex: 10.67.68.X}} "
 read VPN_IP
 echo -e '#!/bin/bash' >> tinc-up
 echo -e 'ifconfig $INTERFACE' $VPN_IP 'netmask 255.255.255.0' >> tinc-up 
 echo -e 'ifconfig $INTERFACE up' >> tinc-up
 
+sleep 2
+
 ## Create down script ##
 touch tinc-down
 echo -e '#!/bin/bash' > tinc-down
 echo -e 'ifconfig $IFCONFIG down' >> tinc-down
- 
+
+echo " " 
+
 ## Create the configuration file ##
 touch tinc.conf
 echo -n "What would you like the name of this client to be? :: "
@@ -66,6 +75,9 @@ echo -e 'ConnectTo = <other.client>'  >> tinc.conf
 echo -e '#ConnectTo = <some.other.client>' >> tinc.conf
 echo -e 'ProcessPriority = high' >> tinc.conf
 echo -e 'LocalDiscovery = yes' >> tinc.conf
+
+echo " " 
+echo " " 
 
 ## Create the VPN-keys ##
 echo -n "Creating 4096-bit key ::"
@@ -83,13 +95,13 @@ echo " "
 echo -n "Checking the host file {{/etc/tinc/$VPN/hosts/$CLIENT_NAME}}"
 cd /etc/tinc/$VPN/hosts/
 value='cat ./*'
-echo "$value"
+$value
 
 sleep 2 
 
 cd ./hosts
 $value1='cat ./*'
-echo "$value1"
+$value1
 
 ### ./tinc start
 
@@ -99,6 +111,8 @@ echo "$value1"
 insserv tinc
 
 sleep 2
+
+echo " " 
 
 ## Just some additional output ##
 echo -n "Alright"
