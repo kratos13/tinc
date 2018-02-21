@@ -85,7 +85,7 @@ cmd="tincd -n $VPN -K4096"
 $cmd 
 
 ## Permission the file ##
-chmod 644 etc/tinc/$VPN/hosts/$CLIENT_NAME
+chmod 644 /etc/tinc/$VPN/hosts/$CLIENT_NAME
 
 echo " " 
 echo " " 
