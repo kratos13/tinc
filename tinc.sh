@@ -99,9 +99,6 @@ $value
 
 sleep 2 
 
-cd ./hosts
-$value1='cat ./*'
-$value1
 
 ### ./tinc start
 
